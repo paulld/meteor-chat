@@ -1,6 +1,10 @@
-Router.configure({
+Router.configure(
   layoutTemplate: 'layout'
-})
-Router.map( ->
-  @route 'postsList', {path: '/'}
+  loadingTemplate: 'loading',
+  waitOn: ->
+    Meteor.subscribe 'posts', 'Paul'
 )
+Router.map ->
+  @route 'postsList', {path: '/'}
+
+Router.onBeforeAction('loading')
