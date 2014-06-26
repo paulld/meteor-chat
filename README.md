@@ -1,4 +1,4 @@
-meteor-chat
+Playbook
 ===========
 
-Simple chat room using Meteor
+Learn Meteor with the Meteor Book by Tom Coleman & Sacha Greif
