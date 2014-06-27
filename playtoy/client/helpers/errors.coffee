@@ -4,4 +4,7 @@
 
 # create a method available on the client-side:
 @throwError = (message) ->
-  Errors.insert {message: message}
+  Errors.insert {message: message, seen: false}
+
+@clearErrors = ->
+  Errors.remove {seen: true}
