@@ -6,9 +6,8 @@
           {{title}}
         </a>
         <span>{{domain}}</span>
-        <span>{{author}}</span>
-        <span>{{description}}</span>
-        <!-- NB: description is not published (cf. post_lists.coffee) so won't be displayed -->
+        <span> - by {{author}}</span>
+        <span> - {{message}}</span>
       </h3>
     </div>
     <a href="{{pathFor 'postPage'}}" class="discuss btn">Discuss</a>

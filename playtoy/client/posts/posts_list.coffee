@@ -6,7 +6,7 @@ Template.postsList.helpers
     #  INFO: if we don't want to load certin fields:
     Posts.find( {category: 'Portfolio'},
                 {fields: {
-                  description: false
+                  message: false
                   }
                 }
               )
