@@ -1,10 +1,9 @@
 @Posts = new Meteor.Collection('posts')
 
-# Posts.allow
-#   insert: (userId, doc) ->
+  # INFO: allow insert not usefull anymore because we handle the user check below
+  # insert: (userId, doc) ->
 #     # only allow posting if you are logged in
 #     !! userId
-  # INFO: not usefull anymore because we handle the user check below
 
 Meteor.methods
   post: (postAttributes) ->
