@@ -5,8 +5,6 @@ Template.postsList.helpers
 
     #  INFO: if we don't want to load certin fields:
     Posts.find( {category: 'Portfolio'},
-                {fields: {
-                  message: false
-                  }
-                }
+                {sort: {submitted: -1}},
+                {fields: {message: false}}
               )

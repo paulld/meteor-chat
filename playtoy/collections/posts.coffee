@@ -37,3 +37,4 @@ Meteor.methods
 
 
 # TODO: what to do with http:// ??
+# TODO: check domain names rather than urls? what if /, http, https...
