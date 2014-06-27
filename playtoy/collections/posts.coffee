@@ -1,9 +1,17 @@
 @Posts = new Meteor.Collection('posts')
 
+Posts.allow
+  update: ownsDocument
+  remove: ownsDocument
   # INFO: allow insert not usefull anymore because we handle the user check below
   # insert: (userId, doc) ->
 #     # only allow posting if you are logged in
 #     !! userId
+
+Posts.deny
+  update: (userId, post, fieldNames) ->
+    # may only edit the following two fields:
+    _.without( fieldNames, 'url', 'title', 'category' ).length > 0
 
 Meteor.methods
   post: (postAttributes) ->
