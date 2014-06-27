@@ -19,9 +19,9 @@ if Posts.find().count() is 0
     title: 'Curriculum Vitae'
     author: 'Paul'
     url: 'http://hk.linkedin.com/in/paullugagnedelpon/'
-    category: 'Resume'
+    category: 'Portfolio'
     description: 'some boring description'
-    flag: false
+    flag: true
   }
   Posts.insert {
     title: 'linkedin Profile'
