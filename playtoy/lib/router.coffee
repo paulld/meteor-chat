@@ -2,7 +2,7 @@ Router.configure(
   layoutTemplate: 'layout'
   loadingTemplate: 'loading',
   waitOn: ->
-    Meteor.subscribe 'posts'
+    [Meteor.subscribe 'posts', Meteor.subscribe 'comments']
     # Meteor.subscribe 'posts', 'Paul'   # INFO: to limit to author: 'Paul', if the function has been set in the publication
 )
 Router.map ->

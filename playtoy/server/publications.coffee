@@ -5,3 +5,6 @@ Meteor.publish 'posts', ->
 # INFO: possibility to put restrictions on the author (cf. subscription)
 # Meteor.publish 'posts', (author) ->
   # Posts.find({ flag: false, author: author })
+
+Meteor.publish 'comments', ->
+  Comments.find()
