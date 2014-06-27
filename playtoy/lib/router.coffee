@@ -2,7 +2,8 @@ Router.configure(
   layoutTemplate: 'layout'
   loadingTemplate: 'loading',
   waitOn: ->
-    Meteor.subscribe 'posts', 'Paul'
+    Meteor.subscribe 'posts'
+    # Meteor.subscribe 'posts', 'Paul'   # INFO: to limit to author: 'Paul', if the function has been set in the publication
 )
 Router.map ->
   @route 'postsList',   { path: '/' }
@@ -10,6 +11,6 @@ Router.map ->
                           path: '/posts/:_id'
                           data: -> Posts.findOne(@params._id)
                         }
-  @route 'postSubmit',  { path: '/submit' }
+  @route 'postSubmit',  { path: '/submit-new-post' }
 
 Router.onBeforeAction('loading')

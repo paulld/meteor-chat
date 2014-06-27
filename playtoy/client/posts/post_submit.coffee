@@ -6,6 +6,7 @@ Template.postSubmit.events
       title: $(e.target).find('[name=title]').val()
       author: $(e.target).find('[name=author]').val()
       category: $(e.target).find('[name=category]').val()
+      description: $(e.target).find('[name=description]').val()
       message: $(e.target).find('[name=message]').val()
       flag: false
     }
