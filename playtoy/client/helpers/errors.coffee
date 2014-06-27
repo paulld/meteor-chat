@@ -3,5 +3,5 @@
 @Errors = new Meteor.Collection(null)
 
 # create a method available on the client-side:
-throwError = (message) ->
+@throwError = (message) ->
   Errors.insert {message: message}
