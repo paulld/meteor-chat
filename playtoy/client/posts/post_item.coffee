@@ -7,3 +7,6 @@ Template.postItem.helpers
     a.hostname
   # hasMessage: ->
   #   @message != null
+
+  commentsCount: ->
+    Comments.find({postId: this._id}).count()

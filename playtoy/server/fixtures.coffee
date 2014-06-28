@@ -1,38 +1,3 @@
-# if Posts.find().count() is 0
-#   Posts.insert {
-#     title: 'Portfolio'
-#     author: 'Paul'
-#     url: 'http://www.paulld.com'
-#     category: 'Portfolio'
-#     description: 'some boring description'
-#     flag: false
-#   }
-#   Posts.insert {
-#     title: 'Github Account'
-#     author: 'Paul'
-#     url: 'https://github.com/paulld'
-#     category: 'Portfolio'
-#     description: 'some boring description'
-#     flag: false
-#   }
-#   Posts.insert {
-#     title: 'Curriculum Vitae'
-#     author: 'Paul'
-#     url: 'http://hk.linkedin.com/in/paullugagnedelpon/'
-#     category: 'Portfolio'
-#     description: 'some boring description'
-#     flag: true
-#   }
-#   Posts.insert {
-#     title: 'linkedin Profile'
-#     author: 'Paul Lugagne Depon'
-#     url: 'http://hk.linkedin.com/in/paullugagnedelpon/'
-#     category: 'Portfolio'
-#     description: 'some boring description'
-#     flag: false
-#   }
-
-
 # // Fixture data
 if Posts.find().count() is 0
   now = new Date().getTime();
@@ -52,7 +17,8 @@ if Posts.find().count() is 0
     author: bob.profile.name
     url: 'http://great.com/introducing-playbook/'
     submitted: now - 7 * 3600 * 1000
-  
+    flag: false
+
 
   Comments.insert
     postId: playbookId
