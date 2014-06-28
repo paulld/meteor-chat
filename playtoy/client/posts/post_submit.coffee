@@ -8,7 +8,6 @@ Template.postSubmit.events
       title: $(e.target).find('[name=title]').val()
       category: $(e.target).find('[name=category]').val()
       message: $(e.target).find('[name=message]').val()
-      flag: false
 
     Meteor.call 'post', post, (error, id) ->
       if error

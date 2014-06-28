@@ -18,6 +18,7 @@ if Posts.find().count() is 0
     url: 'http://great.com/introducing-playbook/'
     submitted: now - 7 * 3600 * 1000
     flag: false
+    commentsCount: 2
 
 
   Comments.insert
@@ -41,6 +42,7 @@ if Posts.find().count() is 0
     url: 'http://www.paulld.com'
     submitted: now - 10 * 3600 * 1000
     flag: false
+    commentsCount: 0
   
   Posts.insert
     title: 'Linkeding profile'
@@ -49,4 +51,5 @@ if Posts.find().count() is 0
     url: 'http://hk.linkedin.com/in/paullugagnedelpon/'
     submitted: now - 12 * 3600 * 1000
     flag: false
+    commentsCount: 0
   

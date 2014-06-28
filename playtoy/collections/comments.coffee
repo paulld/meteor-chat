@@ -21,4 +21,5 @@ Meteor.methods
       submitted: new Date().getTime()
     )
 
-    Comments.insert(comment)
+    Posts.update comment.postId, {$inc: {commentsCount: 1}}
+    Comments.insert comment
