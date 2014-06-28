@@ -36,7 +36,9 @@ Meteor.methods
     post = _.extend(_.pick(postAttributes, 'url', 'title', 'message', 'category', 'flag'),
       userId: user._id,
       author: user.username,
-      submitted: new Date().getTime()
+      submitted: new Date().getTime(),
+      flag: false,
+      commentsCount: 0
     )
     
     postId = Posts.insert post    

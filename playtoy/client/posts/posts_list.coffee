@@ -3,8 +3,12 @@ Template.postsList.helpers
     # INFO: loads all the fields but limits to the post whose category is Portfolio:
     # Posts.find( {category: 'Portfolio'} )
 
-    #  INFO: if we don't want to load certin fields:
-    Posts.find( {category: 'Portfolio'},
-                {sort: {submitted: -1}},
-                {fields: {message: false}}
-              )
+    #  INFO: if we don't want to load certin fields, or want to limit to certain parameters:
+    # Posts.find {category: 'Portfolio'}, {fields: {message: false}},
+    #   sort:
+    #     submitted: -1
+
+    # Show all, sort descending:
+    Posts.find {},
+      sort:
+        submitted: -1
