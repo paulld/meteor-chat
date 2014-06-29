@@ -1,6 +1,7 @@
 # INFO: will only publish posts that are not flagged (flag: false) 
-Meteor.publish 'posts', ->
-  Posts.find( {flag: false} )
+Meteor.publish 'posts', (options) ->
+  # Posts.find( {flag: false} )
+  Posts.find( {}, options )
 
 # INFO: possibility to put restrictions on the author (cf. subscription)
 # Meteor.publish 'posts', (author) ->

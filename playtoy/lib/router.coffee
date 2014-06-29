@@ -2,21 +2,31 @@ Router.configure
   layoutTemplate: 'layout'
   loadingTemplate: 'loading',
   waitOn: ->
-    [Meteor.subscribe('posts'), Meteor.subscribe('notifications')]
+    [Meteor.subscribe('notifications')]
     # Meteor.subscribe 'posts', 'Paul'   # INFO: to limit to author: 'Paul', if such function has been set in the publication
 
 Router.map ->
-  @route 'postsList',   { path: '/' }
+  @route 'postEdit',    {
+                          path: '/posts/:_id/edit'
+                          data: -> Posts.findOne @params._id
+                        }
+  
   @route 'postPage',    { 
                           path: '/posts/:_id'
                           waitOn: -> Meteor.subscribe 'comments', @params._id
                           data: -> Posts.findOne @params._id
                         }
-  @route 'postEdit',    {
-                          path: '/posts/:_id/edit'
-                          data: -> Posts.findOne @params._id
-                        }
+  
   @route 'postSubmit',  { path: '/submit-new-post' }
+  
+  @route 'postsList',   { 
+                          path: '/:postsLimit?'    # ? means that it is optional
+                          waitOn: ->
+                            postsLimit = parseInt(@params.postsLimit) || 5
+                            Meteor.subscribe 'posts',
+                              sort: {submitted: -1}
+                              limit: postsLimit
+                        }
 
 requireLogin = (pause) ->
   unless Meteor.user()

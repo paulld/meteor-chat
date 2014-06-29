@@ -16,7 +16,7 @@ if Posts.find().count() is 0
     userId: bob._id
     author: bob.profile.name
     url: 'http://great.com/introducing-playbook/'
-    submitted: now - 7 * 3600 * 1000
+    submitted: now - 3 * 3600 * 1000
     flag: false
     commentsCount: 2
 
@@ -25,14 +25,14 @@ if Posts.find().count() is 0
     postId: playbookId
     userId: paul._id
     author: paul.profile.name
-    submitted: now - 5 * 3600 * 1000
+    submitted: now - 2 * 3600 * 1000
     body: 'Interesting project bob, can I get involved?'
 
   Comments.insert
     postId: playbookId
     userId: bob._id
     author: bob.profile.name
-    submitted: now - 3 * 3600 * 1000
+    submitted: now - 4 * 3600 * 1000
     body: 'You sure can Paul!'
 
   Posts.insert
@@ -40,7 +40,7 @@ if Posts.find().count() is 0
     userId: paul._id
     author: paul.profile.name
     url: 'http://www.paulld.com'
-    submitted: now - 10 * 3600 * 1000
+    submitted: now - 5 * 3600 * 1000
     flag: false
     commentsCount: 0
   
@@ -49,7 +49,25 @@ if Posts.find().count() is 0
     userId: paul._id
     author: paul.profile.name
     url: 'http://hk.linkedin.com/in/paullugagnedelpon/'
-    submitted: now - 12 * 3600 * 1000
+    submitted: now - 2 * 3600 * 1000
     flag: false
     commentsCount: 0
   
+  
+  for i in [0..15]
+    p = Posts.insert
+      title: 'Test post #' + i
+      author: paul.profile.name
+      userId: paul._id
+      url: 'http://google.com/?q=test-' + i
+      submitted: now - (i + 10) * 3600 * 1000
+      flag: false
+      commentsCount: i
+
+    for j in [1...i+1]
+      Comments.insert
+        postId: p
+        userId: bob._id
+        author: bob.profile.name
+        submitted: now - (i + j + 10) * 3600 * 1000
+        body: 'Comment ' + j + ' about post #' + i
