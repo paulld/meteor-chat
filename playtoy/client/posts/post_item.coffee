@@ -10,4 +10,4 @@ Template.postItem.helpers
 
   # Not necessary anymore since we denormalized commentsCount and included it as a filed in Posts:
   # commentsCount: ->
-  #   Comments.find({postId: this._id}).count()
+  #   Comments.find({postId: @_id}).count()

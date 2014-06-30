@@ -9,6 +9,6 @@ Template.postsList.helpers
     #     submitted: -1
 
     # Show all, sort descending:
-    Posts.find {},
+    Posts.find {},              # INFO: acts a the curser over which {{#each}} will iterate
       sort:
         submitted: -1

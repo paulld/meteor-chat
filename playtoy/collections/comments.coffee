@@ -1,4 +1,4 @@
-@Comments = new Meteor.Collection('comments')
+@Comments = new Meteor.Collection 'comments'
 
 Meteor.methods
   comment: (commentAttributes) ->
@@ -21,5 +21,12 @@ Meteor.methods
       submitted: new Date().getTime()
     )
 
-    Posts.update comment.postId, {$inc: {commentsCount: 1}}
-    Comments.insert comment
+    Posts.update comment.postId, {$inc: {commentsCount: 1}}  # INFO: increment post.commentsCount by 1
+    
+     # create the comment, save the id
+    comment._id = Comments.insert comment
+
+     # now create a notification, informing the user that there's been a comment
+    createCommentNotification comment
+    
+    comment._id
